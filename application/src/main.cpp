@@ -6,7 +6,7 @@
 #include "Controller/InvestmentProfitability/InvestmentProfitabilityController.h"
 #include "../../../utilities/ConnectionManager/Server/SocketManager.h"
 #include "../../config/config.h"
-#include "../../service/utilities/JsonReader.h"
+#include "../../../utilities/JsonParser/JsonReader.h"
 
 int main(int argc, char const *argv[]) {
     while (1) {
