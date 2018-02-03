@@ -19,4 +19,4 @@ add_executable(
         service/utilities/JsonParser/JsonReader.cpp
         service/utilities/JsonParser/JsonReader.h
         service/utilities/JsonParser/JsonWriter.cpp
-        service/utilities/JsonParser/JsonWriter.h)
+        service/utilities/JsonParser/JsonWriter.h service/utilities/JsonParser/Json.h)
