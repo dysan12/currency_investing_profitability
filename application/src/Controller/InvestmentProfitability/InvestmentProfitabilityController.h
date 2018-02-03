@@ -9,8 +9,8 @@
 #include <functional>
 #include <map>
 #include "../InvestmentProfitabilityAbstractController.h"
-#include "../../../../../utilities/ConnectionManager/Server/SocketManager.h"
-#include "../../../../../utilities/JsonLib/include/rapidjson/document.h"
+#include "../../../../service/utilities/ConnectionManager/Server/SocketManager.h"
+#include "../../../../service/utilities/JsonLib/include/rapidjson/document.h"
 #include "../../InvestmentProfitability.h"
 #include <iostream>
 

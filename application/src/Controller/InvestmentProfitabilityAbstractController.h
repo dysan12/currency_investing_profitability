@@ -7,8 +7,8 @@
 
 #include <functional>
 #include <map>
-#include "../../../../../application/src/Exception/NotSupportedException.h"
-#include "../../../../utilities/ConnectionManager/Server/SocketManager.h"
+#include "../Exceptions/NotSupportedException.h"
+#include "../../../service/utilities/ConnectionManager/Server/SocketManager.h"
 #include "../InvestmentProfitability.h"
 
 class InvestmentProfitabilityAbstractController {

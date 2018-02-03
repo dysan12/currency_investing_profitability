@@ -5,8 +5,8 @@
 #include "Controller/InvestmentProfitabilityAbstractController.h"
 #include "Controller/InvestmentProfitability/InvestmentProfitabilityController.h"
 #include "../../config/config.h"
-#include "../../../utilities/JsonParser/JsonReader.h"
-#include "../../../utilities/JsonParser/JsonWriter.h"
+#include "../../service/utilities/JsonParser/JsonReader.h"
+#include "../../service/utilities/JsonParser/JsonWriter.h"
 
 int main(int argc, char const *argv[]) {
     while (1) {
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[]) {
 
         JsonWriter *writer = new JsonWriter();
         std::string preparedData = writer->parseToJson(investmentProfitabilityController->getServerData());
-        
+
         manager->sendData(preparedData.c_str());
     }
 }
