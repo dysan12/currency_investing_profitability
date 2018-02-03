@@ -14,8 +14,9 @@ int main(int argc, char const *argv[]) {
                                                                    CurrencyInvestingProfitability::serverAddress.address);
         InvestmentProfitabilityAbstractController *investmentProfitabilityController = new InvestmentProfitabilityController();
 
-        investmentProfitabilityController->awaitConnection(manager);
-        std::string data = manager->receiveData();
+        //investmentProfitabilityController->awaitConnection(manager);
+        //std::string data = manager->receiveData();
+        std::string data = R"({"module": "calculateInvestingProfitability","data": {"firstCurrency": [1.23, 2.45, 4.32],"secondCurrency": [2.23, 3.45, 1.32]}})";
 
         JsonReader *reader = new JsonReader();
         std::string actionName = reader->parseAction(data);
