@@ -4,13 +4,13 @@
 
 #include "InvestmentProfitability.h"
 
-InvestingProfitability::InvestingProfitability(const std::vector<double> &mainCurrencyValues,
-                                               const std::vector<double> &sideCurrencyValues) : mainCurrencyValues(
+InvestmentProfitability::InvestmentProfitability(const std::vector<double> &mainCurrencyValues,
+                                                 const std::vector<double> &sideCurrencyValues) : mainCurrencyValues(
         mainCurrencyValues), sideCurrencyValues(sideCurrencyValues) {}
 
-double InvestingProfitability::calculateInvestingProfitability() {
-    double profitability = 0;
+std::vector<double> InvestmentProfitability::calculateInvestingProfitability() {
     double prevCurrencyValue = this->getMainCurrencyValues().front();
+    std::vector<double> profitability = {prevCurrencyValue};
     bool first = true;
 
     for (auto &value: this->getMainCurrencyValues()) {
@@ -18,23 +18,24 @@ double InvestingProfitability::calculateInvestingProfitability() {
             first = false;
             continue;
         } else {
-            profitability += round((value / prevCurrencyValue - 1) * 100) / 100;
+            profitability.at(0) += round((value / prevCurrencyValue - 1) * 100) / 100;
             prevCurrencyValue = value;
         }
     }
+    profitability.at(0) *= 100;
 
-    return profitability * 100; //Zwraca w procentach zysk (ujemny lub dodatni)
+    return profitability; //Zwraca w procentach zysk (ujemny lub dodatni)
 }
 
-const std::vector<double> &InvestingProfitability::getMainCurrencyValues() const {
+const std::vector<double> &InvestmentProfitability::getMainCurrencyValues() const {
     return mainCurrencyValues;
 }
 
-const std::vector<double> &InvestingProfitability::getSideCurrencyValues() const {
+const std::vector<double> &InvestmentProfitability::getSideCurrencyValues() const {
     return sideCurrencyValues;
 }
 
-std::vector<double> InvestingProfitability::compareTrendLines() {
+std::vector<double> InvestmentProfitability::compareTrendLines() {
     std::vector<double> trend = {};
     double mainCurrencyPreviousValue = this->getMainCurrencyValues().front();
     double sideCurrencyPreviousValue = this->getSideCurrencyValues().front();

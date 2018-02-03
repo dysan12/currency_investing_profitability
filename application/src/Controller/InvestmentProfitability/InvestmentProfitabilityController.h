@@ -10,12 +10,19 @@
 #include <map>
 #include "../InvestmentProfitabilityAbstractController.h"
 #include "../../../../../utilities/ConnectionManager/Server/SocketManager.h"
-#include "../../../../../utilities/JsonParser/include/rapidjson/document.h"
+#include "../../../../../utilities/JsonLib/include/rapidjson/document.h"
+#include "../../InvestmentProfitability.h"
 #include <iostream>
 
 
 class InvestmentProfitabilityController : public InvestmentProfitabilityAbstractController{
 private:
+    InvestmentProfitability* investmentProfitability;
+    std::vector<double> serverData;
+public:
+    const std::vector<double> &getServerData() const override;
+
+    void setServerData(const std::vector<double> &serverData);
 
 public:
     std::map<std::string, std::function<void()>> getActionsMap() override {
@@ -26,10 +33,11 @@ public:
         return actionsMap;
     };
 
-    bool awaitConnection(Server::SocketManager) override ;
+    void setInvestmentModel(InvestmentProfitability*) override;
+    bool awaitConnection(Server::SocketManager*) override ;
 
-    double calculateInvestingProfitability();
-    std::vector<double> compareTrendLines();
+    void calculateInvestingProfitability();
+    void compareTrendLines();
 };
 
 

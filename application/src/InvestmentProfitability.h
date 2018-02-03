@@ -9,14 +9,14 @@
 #include <vector>
 #include <cmath>
 
-class InvestingProfitability {
+class InvestmentProfitability {
 private:
     std::vector<double> mainCurrencyValues;
 
     std::vector<double> sideCurrencyValues;
 
 public:
-    InvestingProfitability(const std::vector<double> &mainCurrencyValues,
+    InvestmentProfitability(const std::vector<double> &mainCurrencyValues,
                            const std::vector<double> &sideCurrencyValues);
 
     const std::vector<double> &getMainCurrencyValues() const;
@@ -24,7 +24,7 @@ public:
     const std::vector<double> &getSideCurrencyValues() const;
 
 public:
-    double calculateInvestingProfitability();
+    std::vector<double> calculateInvestingProfitability();
     std::vector<double> compareTrendLines();
 };
 
