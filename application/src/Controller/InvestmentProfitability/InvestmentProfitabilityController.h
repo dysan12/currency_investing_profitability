@@ -38,6 +38,7 @@ public:
 
     void calculateInvestingProfitability();
     void compareTrendLines();
+    ~InvestmentProfitabilityController() override = default;
 };
 
 

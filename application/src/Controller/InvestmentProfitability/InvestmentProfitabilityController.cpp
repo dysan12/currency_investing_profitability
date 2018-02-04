@@ -6,9 +6,7 @@
 
 
 bool InvestmentProfitabilityController::awaitConnection(Server::SocketManager* manager) {
-    manager->prepareConnection();
     manager->listenForConnection();
-
     return true;
 }
 

@@ -33,5 +33,7 @@ public:
     virtual std::map<std::string, std::function<void()>> getActionsMap() = 0;
     virtual bool awaitConnection(Server::SocketManager*) = 0;
     virtual const std::vector<double> &getServerData() const = 0;
+
+    virtual ~InvestmentProfitabilityAbstractController() = default;
 };
 #endif //AET_INVESTMENTPROFITABILITYABSTRACTCONTROLLER_H
