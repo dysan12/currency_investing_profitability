@@ -5,11 +5,6 @@
 #include "InvestmentProfitabilityController.h"
 
 
-bool InvestmentProfitabilityController::awaitConnection(Server::SocketManager* manager) {
-    manager->listenForConnection();
-    return true;
-}
-
 void InvestmentProfitabilityController::calculateInvestingProfitability() {
     this->setServerData(this->investmentProfitability->calculateInvestingProfitability());
 }

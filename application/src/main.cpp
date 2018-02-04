@@ -21,8 +21,10 @@ int main(int argc, char const *argv[]) {
     while (1) {
         InvestmentProfitabilityAbstractController *investmentProfitabilityController = new InvestmentProfitabilityController();
 
-        investmentProfitabilityController->awaitConnection(manager);
+        manager->listenForConnection();
+
         std::string data = manager->receiveData();
+        std::cout << "Input data: " << data << std::endl;
 
         std::string actionName = reader->parseAction(data);
         investmentProfitabilityController->setInvestmentModel(
@@ -34,6 +36,9 @@ int main(int argc, char const *argv[]) {
 
         manager->sendData(preparedData.c_str());
 
+        std::cout << "Output data: " << preparedData << std::endl;
+
+        manager->destroyConnectedSocket();
         delete investmentProfitabilityController;
     }
 }

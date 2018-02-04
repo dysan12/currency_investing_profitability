@@ -34,7 +34,6 @@ public:
     };
 
     void setInvestmentModel(InvestmentProfitability*) override;
-    bool awaitConnection(Server::SocketManager*) override ;
 
     void calculateInvestingProfitability();
     void compareTrendLines();
